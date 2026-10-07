@@ -6,11 +6,22 @@
 
 ## 使用方法
 
-把本仓库地址发给能读取 GitHub 的 AI，告诉它：
+### 豆包：上传一个文件
 
-> 请先完整读取这个仓库的 START_HERE.md 和 SKILL.md，再按规则帮我做副业方向自测。
+在当前豆包实测对话中，豆包明确表示无法打开外部 GitHub 链接。因此不要只把仓库网址发给它。
 
-当前主推豆包、GPT / ChatGPT、WorkBuddy；各平台读取 GitHub 的能力和方式仍需分别实测。读不了 GitHub 时，下载 `SKILL.md` 上传给 AI，或把全文复制到新对话中。
+1. 打开 [SKILL.md](https://github.com/njyuer-arch/side-hustle-direction-self-test/blob/main/SKILL.md)，下载这个文件。
+2. 在豆包新对话里上传该文件，发一句：**“请完整读取我上传的 SKILL.md，按里面的规则，一次只问我一个问题，带我完成副业方向自测。”**
+
+若当前豆包不接受 `.md` 文件，可以打开它复制全文，直接粘贴到新对话；也可以保存为 `.txt` 再上传。无需连接 GitHub 或让豆包读取 `START_HERE.md`。
+
+### 其他能读取 GitHub 的 AI
+
+把本仓库地址发给 AI，说：
+
+> 请自行读取这个仓库的 START_HERE.md 和 SKILL.md，按规则一次只问我一个问题，带我完成副业方向自测；如果读不了，请直接告诉我。
+
+GPT / ChatGPT、WorkBuddy 等入口的具体读取方式仍需分别实测；任何 AI 读不了仓库时都可使用上传 `SKILL.md` 的方法。
 
 AI 会先简短说明：大约十来问，内容涉及想法、经历、时间和钱，具体问题会随回答变化；不知道的可以跳过。它会单独提示：
 
