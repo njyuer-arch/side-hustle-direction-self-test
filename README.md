@@ -6,22 +6,17 @@
 
 ## 使用方法
 
-### 豆包：上传一个文件
+### 有 GitHub 连接器的 AI（包括已启用连接器的豆包）
 
-在当前豆包实测对话中，豆包明确表示无法打开外部 GitHub 链接。因此不要只把仓库网址发给它。
+在相应对话中启用或授权 GitHub 连接器，再发：
 
-1. 打开 [SKILL.md](https://github.com/njyuer-arch/side-hustle-direction-self-test/blob/main/SKILL.md)，下载这个文件。
-2. 在豆包新对话里上传该文件，发一句：**“请完整读取我上传的 SKILL.md，按里面的规则，一次只问我一个问题，带我完成副业方向自测。”**
+> 请使用 GitHub 连接器读取公开仓库 `njyuer-arch/side-hustle-direction-self-test` 的 `main` 分支，先完整读取 `START_HERE.md` 和 `SKILL.md`，然后按规则一次只问我一个问题，带我完成副业方向自测；如果连接器未启用或读取失败，请明确告诉我。
 
-若当前豆包不接受 `.md` 文件，可以打开它复制全文，直接粘贴到新对话；也可以保存为 `.txt` 再上传。无需连接 GitHub 或让豆包读取 `START_HERE.md`。
+仓库地址：[njyuer-arch/side-hustle-direction-self-test](https://github.com/njyuer-arch/side-hustle-direction-self-test)。只发送网页网址时，AI 可能走普通网页访问，不能证明它已调用 GitHub 连接器；请让它明确使用连接器并实际读出文件。
 
-### 其他能读取 GitHub 的 AI
+### 如果当前对话没有用上连接器
 
-把本仓库地址发给 AI，说：
-
-> 请自行读取这个仓库的 START_HERE.md 和 SKILL.md，按规则一次只问我一个问题，带我完成副业方向自测；如果读不了，请直接告诉我。
-
-GPT / ChatGPT、WorkBuddy 等入口的具体读取方式仍需分别实测；任何 AI 读不了仓库时都可使用上传 `SKILL.md` 的方法。
+打开 [SKILL.md](https://github.com/njyuer-arch/side-hustle-direction-self-test/blob/main/SKILL.md) 下载文件，上传到 AI 新对话，说：“请完整读取我上传的 SKILL.md，按里面的规则，一次只问我一个问题，带我完成副业方向自测。” 不接受 `.md` 时，可复制全文或保存为 `.txt` 上传。
 
 AI 会先简短说明：大约十来问，内容涉及想法、经历、时间和钱，具体问题会随回答变化；不知道的可以跳过。它会单独提示：
 
