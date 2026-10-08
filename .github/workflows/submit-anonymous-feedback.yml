@@ -46,6 +46,8 @@ jobs:
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
+      - name: Test feedback writer without production writes
+        run: python3 .github/scripts/test_submit_anonymous_feedback.py
       - name: Write anonymous feedback entry
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
