@@ -14,6 +14,6 @@
 
 ## 当前状态
 
-仓库现已包含 GitHub Actions 手动流程 .github/workflows/submit-anonymous-feedback.yml，无需 Sites、外部表单、个人访问令牌或第三方服务。报告后修订完成并取得明确同意后，由项目维护者（需有仓库写入权限）在 Actions → Submit anonymous feedback → Run workflow 手动填写摘要并触发。工作流用本仓库范围的 GITHUB_TOKEN 写入随机文件，Git 提交作者为 github-actions[bot]；触发维护者的账号仅出现在仓库的 Actions 运行记录中，不写入反馈文件。测试者不需要 GitHub 账号。工作流输入和最终条目均公开可见，因此只输入已向用户展示并获同意的去身份内容。
+仓库现已包含 GitHub Actions 手动流程 .github/workflows/submit-anonymous-feedback.yml，无需 Sites、外部表单、个人访问令牌或第三方服务。报告后修订完成并取得明确同意后，由项目维护者（需有仓库写入权限）在 Actions → Submit anonymous feedback → Run workflow 手动填写摘要并触发。工作流用本仓库范围的 GITHUB_TOKEN 写入随机文件，Git 提交作者为 github-actions[bot]；触发维护者的账号仅出现在仓库的 Actions 运行记录中，不写入反馈文件。测试者不需要 GitHub 账号。Actions 运行记录可能保留提交输入；最终条目会公开可读，因此只输入已向用户展示并获同意的去身份内容。
 
-不能让测试者的个人 GitHub 连接器代写，也不能改投 D1、Sites、Issue 或其他存储。工作流未成功并返回条目链接时，如实说明尚未入库。
+不能让测试者的个人 GitHub 连接器代写，也不能改投 D1、Sites、Issue 或其他存储。工作流未返回成功回执时，不确认提交成功；先检查反馈目录是否已生成条目，再决定是否重试，避免网络超时造成重复。
