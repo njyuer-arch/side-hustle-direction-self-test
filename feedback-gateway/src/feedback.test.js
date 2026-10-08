@@ -26,6 +26,8 @@ test("fails closed unless revisions, shown summary, and explicit public consent 
 test("rejects common direct identifiers", () => {
   assert.throws(() => validateFeedback({ ...input(), final_summary: "电话 13812345678" }));
   assert.throws(() => validateFeedback({ ...input(), optional_feedback: "test@example.com" }));
+  assert.throws(() => validateFeedback({ ...input(), final_summary: "证件号 11010519491231002X" }));
+  assert.throws(() => validateFeedback({ ...input(), final_summary: "摘".repeat(5001) }));
 });
 
 test("places a random UUID in the public feedback path", () => {
@@ -87,4 +89,23 @@ test("recovers a successful GitHub write whose response was lost", async () => {
   const result = await submitFeedback(clean, github, new Date("2026-10-08T00:00:00Z"));
   assert.equal(result.alreadySubmitted, true);
   assert.match(result.url, /github\.com/);
+});
+
+test("retry across a month boundary reuses the original month and file", async () => {
+  const clean = validateFeedback(input());
+  const files = new Map();
+  let writes = 0;
+  const github = {
+    async getFile(path) { return files.get(path) || null; },
+    async createFile(path, content) {
+      writes += 1;
+      const entry = { content, url: "https://github.com/repo/" + path, commit: "abc123" };
+      files.set(path, entry);
+      return entry;
+    },
+  };
+  await submitFeedback(clean, github, new Date("2026-10-31T23:59:00Z"));
+  const retry = await submitFeedback(clean, github, new Date("2026-11-01T00:01:00Z"));
+  assert.equal(writes, 1);
+  assert.match(retry.path, /2026-10/);
 });
