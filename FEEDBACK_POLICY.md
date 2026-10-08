@@ -14,6 +14,6 @@
 
 ## 当前状态
 
-目前尚无已启用的匿名机器人写入通道。直接调用测试者自己的 GitHub 连接器会暴露其提交账号，因此禁止这样做。项目维护者须先配置仅对此仓库有内容写入权限的 GitHub App 或机器人凭据。启用后，只有实际收到 GitHub 成功回执及条目链接，才能报告已入库。
+仓库现已包含 GitHub Actions 手动流程 .github/workflows/submit-anonymous-feedback.yml，无需 Sites、外部表单、个人访问令牌或第三方服务。报告后修订完成并取得明确同意后，由项目维护者（需有仓库写入权限）在 Actions → Submit anonymous feedback → Run workflow 手动填写摘要并触发。工作流用本仓库范围的 GITHUB_TOKEN 写入随机文件，Git 提交作者为 github-actions[bot]；触发维护者的账号仅出现在仓库的 Actions 运行记录中，不写入反馈文件。测试者不需要 GitHub 账号。工作流输入和最终条目均公开可见，因此只输入已向用户展示并获同意的去身份内容。
 
-当前不能把反馈写入 GitHub；若用户授权的是公开 GitHub 入库，不能擅自改投 D1、Sites、Issue 或其他存储。写入通道未就绪时，如实说明尚未提交，不得制造成功回执。
+不能让测试者的个人 GitHub 连接器代写，也不能改投 D1、Sites、Issue 或其他存储。工作流未成功并返回条目链接时，如实说明尚未入库。
